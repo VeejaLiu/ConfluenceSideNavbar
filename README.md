@@ -1,9 +1,19 @@
-# Confluence Side Navbar ![icon-32.png](images%2Ficon-32.png)
+# Confluence Side Navbar <img src="images/icon-128.png" alt="img.png" width=30px/>
 
 This Chrome extension is designed to enhance your experience while using Confluence by adding a side navbar. The side navbar will help you quickly locate content, making it easier and faster to access the information you need.
 
 ## Demo
 
-![img.png](doc-images%2Fimg.png)
+<img src="doc-images/demo.png" alt="img.png" width="800" />
 
 ## Installation
+
+1. Download the zip file from the [latest release](https://github.com/VeejaLiu/ConfluenceSideNavbar/releases/latest).
+2. Unzip the file.
+3. Open Chrome and go to `chrome://extensions/`.
+   - You can also access this page by clicking the Chrome menu on the top right corner, then select `More tools` -> `Extensions`.
+4. Turn on `Developer mode` on the top right corner.
+5. Click `Load unpacked` on the top left corner.
+6. Select the unzipped folder.
+7. You should see the extension is added to the list.
+8. Go to your Confluence page and you should see the side navbar.
