@@ -49,8 +49,9 @@ function generateDiv(headingObjs) {
  *  {text: "headingN", href: "headingN", level: N},
  *  ]
  * @return {*[]}
+ * @param content
  */
-function getAllHeadingObjects() {
+function getAllHeadingObjects(content) {
   // find all h1, h2, h3, h4 ... h6 elements
   const headings = content.querySelectorAll("h1, h2, h3, h4, h5, h6");
   console.log("Found headings:", headings);
@@ -73,12 +74,14 @@ function getAllHeadingObjects() {
 function main() {
 // find the element with the id "content"
   const content = document.querySelector("#content");
-
-
 // `document.querySelector` may return null if the selector doesn't match anything.
   if (content) {
     console.log("Found content!");
-    const headingObjs = getAllHeadingObjects();
+    const headingObjs = getAllHeadingObjects(content);
+    if (headingObjs.length === 0) {
+      console.log("No heading found.");
+      return;
+    }
     const div = generateDiv(headingObjs);
     document.body.appendChild(div);
   } else {
