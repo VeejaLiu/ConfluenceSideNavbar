@@ -15,10 +15,10 @@
   },
   "content_scripts": [
     {
-      "js": ["scripts/content.js"],
       "matches": [
         "https://*.atlassian.net/wiki/spaces/*/*/*"
       ],
+      "js": ["scripts/content.js"],
       "run_at": "document_end"
     }
   ]

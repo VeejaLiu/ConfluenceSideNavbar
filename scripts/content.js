@@ -1,5 +1,4 @@
-console.log("Matched!");
-
+// console.log("Matched!");
 
 function generateDiv(headingObjs) {
   // 在整个页面上添加一个div，悬浮在页面右侧，上下保持中央，显示所有标题，点击标题可以跳转到对应的标题
@@ -38,6 +37,36 @@ function generateDiv(headingObjs) {
   return div;
 }
 
+function generateButton(div) {
+  const button = document.createElement("button");
+  button.style.position = "fixed";
+  button.style.right = "0";
+  button.style.top = "45%";
+  button.style.width = "30px";
+  button.style.height = "30px";
+  button.style.border = "none";
+  button.style.backgroundColor = "rgb(235,236,240)";
+  button.style.color = "black";
+  button.style.transform = "rotate(0deg)";
+  button.style.zIndex = "100";
+  button.innerHTML = "&#10148;";
+  div.style.display = "block";
+  button.onclick = () => {
+    // console.log("Clicked!")
+    // console.log("div.style.display" + div.style.display)
+    if (div.style.display === "none") {
+      div.style.display = "block";
+      button.style.transform = "rotate(0deg)";
+    } else {
+      div.style.display = "none";
+      button.style.transform = "rotate(180deg)";
+    }
+    // console.log("div.style.display" + div.style.display)
+  };
+  return button;
+
+}
+
 /**
  * Get all headings' text content, and convert it to an array
  * return value format:
@@ -54,7 +83,7 @@ function generateDiv(headingObjs) {
 function getAllHeadingObjects(content) {
   // find all h1, h2, h3, h4 ... h6 elements
   const headings = content.querySelectorAll("h1, h2, h3, h4, h5, h6");
-  console.log("Found headings:", headings);
+  // console.log("Found headings:", headings);
 
   // get all headings' text content, and convert it to an array
   const headingObjs = [];
@@ -67,7 +96,7 @@ function getAllHeadingObjects(content) {
       text: text, href: href, level: level,
     });
   }
-  console.log("Heading objects:", headingObjs);
+  // console.log("Heading objects:", headingObjs);
   return headingObjs;
 }
 
@@ -76,16 +105,18 @@ function main() {
   const content = document.querySelector("#content");
 // `document.querySelector` may return null if the selector doesn't match anything.
   if (content) {
-    console.log("Found content!");
+    // console.log("Found content!");
     const headingObjs = getAllHeadingObjects(content);
     if (headingObjs.length === 0) {
-      console.log("No heading found.");
+      // console.log("No heading found.");
       return;
     }
     const div = generateDiv(headingObjs);
+    const button = generateButton(div);
     document.body.appendChild(div);
+    document.body.appendChild(button);
   } else {
-    console.log("Couldn't find content.");
+    // console.log("Couldn't find content.");
   }
 }
 
