@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Confluence Side Navbar",
   "description": "Confluence Side Navbar, to show the categories of content in the sidebar",
-  "version": "1.0",
+  "version": "1.1",
   "action": {
     "default_popup": "./popup/popup.html",
     "default_icon": "./images/icon-128.png"
