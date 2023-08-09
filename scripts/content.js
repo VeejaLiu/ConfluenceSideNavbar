@@ -29,9 +29,10 @@ function generateDiv(headingObjs) {
      *
      * 如果显示不完，不要换行
      */
-    const paddingLeft = (headingObj.level - 1) * 5;
+    const paddingLeft = (headingObj.level - 1) * 10;
+    const fontWeight = headingObj.level === 1 ? "bolder" : "normal";
     // result += `<a href="#${headingObj.href}" style="display: block; padding-left: ${paddingLeft}px;">${"#".repeat(headingObj.level)} ${headingObj.text}</a>`;
-    result += `<a href="#${headingObj.href}" style="display: block; padding-left: ${paddingLeft}px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="${headingObj.text}">${headingObj.text}</a>`;
+    result += `<a href="#${headingObj.href}" style="display: block; padding-left: ${paddingLeft}px; font-weight: ${fontWeight}; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="${headingObj.text}">${headingObj.text}</a>`;
     return result;
   }).join("");
   return div;
@@ -95,6 +96,15 @@ function getAllHeadingObjects(content) {
     headingObjs.push({
       text: text, href: href, level: level,
     });
+  }
+
+  // make min level to 1
+  const minLevel = Math.min(...headingObjs.map((headingObj) => headingObj.level));
+  // console.log("minLevel:", minLevel);
+  if (minLevel > 1) {
+    for (const headingObj of headingObjs) {
+      headingObj.level -= minLevel - 1;
+    }
   }
   // console.log("Heading objects:", headingObjs);
   return headingObjs;
