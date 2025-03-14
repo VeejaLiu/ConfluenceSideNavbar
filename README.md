@@ -1,3 +1,5 @@
+This repository has been deprecated, and I used a template to refactor the code of this repository. Please visit this address: [ConfluenceSideBar](https://github.com/VeejaLiu/ConfluenceSideBar)
+
 # Confluence Side Navbar <img src="images/icon-128.png" alt="img.png" width=30px/>
 
 This Chrome extension is designed to enhance your experience while using Confluence by adding a side navbar. The side navbar will help you quickly locate content, making it easier and faster to access the information you need.
